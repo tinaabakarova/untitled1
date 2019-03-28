@@ -1,11 +1,10 @@
-public class qwert {
+public class multithreading {
 
     static final int size = 10000000;
     static final int h = size / 2;
     float[] arr = new float[size];
 
-    public void method1() {
-
+    public synchronized void method1() {
         for (int i = 0; i < size; i++) {
             arr[i] = 1;
         }
@@ -17,7 +16,7 @@ public class qwert {
         System.out.println(System.currentTimeMillis() - a);
     }
 
-    public void method2() {
+    public synchronized void  method2() {
         float[] a1 = new float[h];
         float[] a2 = new float[h];
         long a = System.currentTimeMillis();
@@ -42,8 +41,8 @@ public class qwert {
     }
 
     public static void main(String[] args) {
-        new qwert().method1();
-        new qwert().method2();
+        new multithreading().method1();
+        new multithreading().method2();
     }
 
 }
